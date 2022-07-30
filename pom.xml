@@ -3,15 +3,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>sdstc-spring-boot-dependencies</artifactId>
-        <groupId>com.sdstc</groupId>
-        <version>2.0.0</version>
+        <groupId>cn.texous.open.base</groupId>
+        <artifactId>open-spring-boot-dependencies</artifactId>
+        <version>1.0.0</version>
     </parent>
-    <artifactId>sdstc-spring-boot-parent</artifactId>
+    <artifactId>open-spring-boot-parent</artifactId>
     <packaging>pom</packaging>
 
-    <name>sdstc-spring-boot-parent</name>
-    <description>The is sdstc-spring-boot-parent</description>
+    <name>open-spring-boot-parent</name>
+    <description>open-spring-boot-parent</description>
 
     <properties>
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
@@ -19,6 +19,7 @@
         <maven-install-plugin.version>3.0.0</maven-install-plugin.version>
         <maven-deploy-plugin.version>3.0.0</maven-deploy-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+        <maven-surefire-plugin.version>	2.22.2</maven-surefire-plugin.version>
     </properties>
 
     <build>
@@ -62,6 +63,11 @@
                     <artifactId>maven-source-plugin</artifactId>
                     <version>${maven-source-plugin.version}</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version><!--$NO-MVN-MAN-VER$-->
+                </plugin>
             </plugins>
         </pluginManagement>
 
@@ -75,28 +81,19 @@
                 <directory>src/main/resources</directory>
                 <!--先排除所有的配置文件-->
                 <excludes>
-                    <exclude>application*.yml</exclude>
+                    <exclude>**/*test.yml</exclude>
+                    <exclude>**/*test.properties</exclude>
                 </excludes>
-            </resource>
-
-            <resource>
-                <directory>src/main/resources</directory>
-                <!--引入所需环境的配置文件-->
-                <filtering>true</filtering>
-                <includes>
-                    <include>application.yml</include>
-                    <include>application-${spring.profiles.active}.yml</include>
-                </includes>
             </resource>
         </resources>
     </build>
 
     <repositories>
         <repository>
-            <id>central</id>
-            <name>central</name>
+            <id>nexus</id>
+            <name>Nexus</name>
             <!-- 配置仓库的地址 -->
-            <url>${REMOTE_PUBLIC}</url>
+            <url>${NEXUS-PUBLIC}</url>
         </repository>
     </repositories>
 
