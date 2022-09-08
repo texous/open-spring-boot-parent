@@ -3,7 +3,7 @@
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 :: 获取脚本文件名
-set file_name=%0
+set file_name=%~nx0
 
 for /f "tokens=2 delims=-" %%a in ("%file_name%") do (
 	::输出第一个分段(令牌)
