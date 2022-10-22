@@ -11,6 +11,12 @@
     <version>1.1.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <scm>
+        <connection>scm:svn:https://github.com/texous/open-spring-boot-parent.git</connection>
+        <developerConnection>scm:svn:https://github.com/texous/open-spring-boot-parent.git</developerConnection>
+        <url>scm:svn:https://github.com/texous/open-spring-boot-parent</url>
+    </scm>
+
     <properties>
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
         <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
@@ -21,6 +27,7 @@
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <maven-site-plugin.version>3.12.1</maven-site-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-changelog-plugin.version>2.3</maven-changelog-plugin.version>
         <versions-maven-plugin.version>2.12.0</versions-maven-plugin.version>
     </properties>
 
@@ -91,6 +98,12 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version><!--$NO-MVN-MAN-VER$-->
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-changelog-plugin</artifactId>
+                    <version>${maven-changelog-plugin.version}</version>
                 </plugin>
 
                 <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/versions-maven-plugin -->
